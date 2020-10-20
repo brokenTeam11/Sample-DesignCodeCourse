@@ -43,7 +43,7 @@ struct SideBar: View {
             Label("Certificates", systemImage: "mail.stack")
             Label("Search", systemImage: "magnifyingglass")
         }
-        .listStyle(SidebarListStyle())
+        .listStyle(InsetGroupedListStyle())
         
     }
 }
