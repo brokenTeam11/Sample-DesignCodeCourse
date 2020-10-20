@@ -11,8 +11,8 @@ import SwiftUI
 struct Sample_DesignCodeCourseApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            SideBar()
+            ContentView()
+//            SideBar()
         }
     }
 }

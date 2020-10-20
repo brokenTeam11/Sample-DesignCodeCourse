@@ -19,6 +19,9 @@
 		C375379B253F45FB00EE2D87 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753799253F45FB00EE2D87 /* CourseView.swift */; };
 		C375379F253F47B000EE2D87 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375379E253F47B000EE2D87 /* SideBar.swift */; };
 		C37537A0253F47B000EE2D87 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375379E253F47B000EE2D87 /* SideBar.swift */; };
+		C378EA25253F5D1900C8FA3C /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378EA24253F5D1900C8FA3C /* CourseItem.swift */; };
+		C378EA28253F5D2500C8FA3C /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378EA24253F5D1900C8FA3C /* CourseItem.swift */; };
+		C378EA34253F614D00C8FA3C /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378EA33253F614D00C8FA3C /* CourseList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,8 @@
 		C3753794253F41A700EE2D87 /* CourseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRow.swift; sourceTree = "<group>"; };
 		C3753799253F45FB00EE2D87 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		C375379E253F47B000EE2D87 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
+		C378EA24253F5D1900C8FA3C /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
+		C378EA33253F614D00C8FA3C /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */,
-				C3753772253F352600EE2D87 /* ContentView.swift */,
-				C3753794253F41A700EE2D87 /* CourseRow.swift */,
+				C378EA2D253F5ED100C8FA3C /* Navigation */,
+				C378EA30253F5F1800C8FA3C /* Items */,
 				C3753799253F45FB00EE2D87 /* CourseView.swift */,
-				C375379E253F47B000EE2D87 /* SideBar.swift */,
+				C378EA33253F614D00C8FA3C /* CourseList.swift */,
 				C3753773253F352800EE2D87 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -100,6 +105,24 @@
 				C3753783253F352800EE2D87 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		C378EA2D253F5ED100C8FA3C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C3753772253F352600EE2D87 /* ContentView.swift */,
+				C375379E253F47B000EE2D87 /* SideBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C378EA30253F5F1800C8FA3C /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				C378EA24253F5D1900C8FA3C /* CourseItem.swift */,
+				C3753794253F41A700EE2D87 /* CourseRow.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,10 +223,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C375379F253F47B000EE2D87 /* SideBar.swift in Sources */,
+				C378EA25253F5D1900C8FA3C /* CourseItem.swift in Sources */,
 				C3753786253F352900EE2D87 /* ContentView.swift in Sources */,
 				C3753795253F41A700EE2D87 /* CourseRow.swift in Sources */,
 				C3753784253F352800EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */,
 				C375379A253F45FB00EE2D87 /* CourseView.swift in Sources */,
+				C378EA34253F614D00C8FA3C /* CourseList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37537A0253F47B000EE2D87 /* SideBar.swift in Sources */,
+				C378EA28253F5D2500C8FA3C /* CourseItem.swift in Sources */,
 				C3753787253F352900EE2D87 /* ContentView.swift in Sources */,
 				C3753796253F41A700EE2D87 /* CourseRow.swift in Sources */,
 				C3753785253F352900EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */,
@@ -273,6 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,6 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
