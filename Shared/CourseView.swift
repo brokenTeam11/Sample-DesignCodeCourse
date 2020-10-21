@@ -24,27 +24,49 @@ struct CourseView: View {
                     spacing: 16)
                 {
                     ForEach(courses) { item in
-                        CourseItem(course: item)
-                            .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
-                            .frame(height: 200)
-                            .onTapGesture {
-                                withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
-                                    show.toggle()
-                                    selectedItem = item
-                                    isDisabled = true
+                        VStack {
+                            CourseItem(course: item)
+                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                                .frame(height: 200)
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0)) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
+                                        show.toggle()
+                                        selectedItem = item
+                                        isDisabled = true
+                                    }
                                 }
-                            }
-                            .disabled(isDisabled)
+                                .disabled(isDisabled)
+                        }
+                        .matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource: !show)
                     }
                 }
                 .padding(16)
                 .frame(maxWidth: .infinity)
             }
+            .zIndex(1)
             if selectedItem != nil {
-                ScrollView {
-                    CourseItem(course: selectedItem!)
-                        .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                        .frame(height: 300)
+                ZStack(alignment: .topTrailing) {
+                    VStack {
+                        ScrollView {
+                            CourseItem(course: selectedItem!)
+                                .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                                .frame(height: 300)
+                            VStack(spacing: 16) {
+                                ForEach(0 ..< 20) { _ in
+                                    CourseRow()
+                                }
+                            }
+                            .padding()
+                        }
+                    }
+                    .background(Color("Background 1"))
+                    .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+                    .matchedGeometryEffect(id: "container\(selectedItem!.id)", in: namespace)
+                    .edgesIgnoringSafeArea(.all)
+                    
+                    
+                    CloseButton()
+                        .padding(.trailing, 16)
                         .onTapGesture {
                             withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
                                 show.toggle()
@@ -55,26 +77,8 @@ struct CourseView: View {
                                 }
                             }
                         }
-                    VStack(spacing: 16) {
-                        ForEach(0 ..< 20) { _ in
-                            CourseRow()
-                        }
-                    }
-                    .padding()
                 }
-                .background(Color("Background 1"))
-                .transition(
-                    .asymmetric(
-                        insertion: AnyTransition
-                            .opacity
-                            .animation(
-                                Animation.spring().delay(0.3)),
-                        removal: AnyTransition
-                            .opacity
-                            .animation(.spring())
-                    )
-                )
-                .edgesIgnoringSafeArea(.all)
+                .zIndex(2)
             }
         }
     }
