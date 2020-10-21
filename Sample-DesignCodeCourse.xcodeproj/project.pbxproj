@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34993D725407FC8009CE6DA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34993D625407FC8009CE6DA /* Course.swift */; };
+		C34993D825407FC8009CE6DA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34993D625407FC8009CE6DA /* Course.swift */; };
 		C3753784253F352800EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */; };
 		C3753785253F352900EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */; };
 		C3753786253F352900EE2D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753772253F352600EE2D87 /* ContentView.swift */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C34993D625407FC8009CE6DA /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_DesignCodeCourseApp.swift; sourceTree = "<group>"; };
 		C3753772253F352600EE2D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3753773253F352800EE2D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 				C378EA2D253F5ED100C8FA3C /* Navigation */,
 				C378EA30253F5F1800C8FA3C /* Items */,
 				C3753799253F45FB00EE2D87 /* CourseView.swift */,
+				C34993D625407FC8009CE6DA /* Course.swift */,
 				C378EA33253F614D00C8FA3C /* CourseList.swift */,
 				C3753773253F352800EE2D87 /* Assets.xcassets */,
 			);
@@ -222,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34993D725407FC8009CE6DA /* Course.swift in Sources */,
 				C375379F253F47B000EE2D87 /* SideBar.swift in Sources */,
 				C378EA25253F5D1900C8FA3C /* CourseItem.swift in Sources */,
 				C3753786253F352900EE2D87 /* ContentView.swift in Sources */,
@@ -237,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37537A0253F47B000EE2D87 /* SideBar.swift in Sources */,
+				C34993D825407FC8009CE6DA /* Course.swift in Sources */,
 				C378EA28253F5D2500C8FA3C /* CourseItem.swift in Sources */,
 				C3753787253F352900EE2D87 /* ContentView.swift in Sources */,
 				C3753796253F41A700EE2D87 /* CourseRow.swift in Sources */,
