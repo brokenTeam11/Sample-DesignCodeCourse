@@ -12,15 +12,21 @@ struct CourseView: View {
     @Namespace var namespace
     @State var selectedItem: Course? = nil
     @State var isDisabled = false
-    
+
     var body: some View {
         ZStack {
             ScrollView {
-                VStack(spacing: 20) {
+                // layout布局
+                LazyVGrid(
+                    columns: [
+                        GridItem(.adaptive(minimum: 160), spacing: 16)
+                    ],
+                    spacing: 16)
+                {
                     ForEach(courses) { item in
                         CourseItem(course: item)
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
-                            .frame(width: 335, height: 250)
+                            .frame(height: 200)
                             .onTapGesture {
                                 withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
                                     show.toggle()
@@ -31,6 +37,7 @@ struct CourseView: View {
                             .disabled(isDisabled)
                     }
                 }
+                .padding(16)
                 .frame(maxWidth: .infinity)
             }
             if selectedItem != nil {
@@ -46,27 +53,25 @@ struct CourseView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     isDisabled = false
                                 }
-                                
                             }
                         }
                     VStack(spacing: 16) {
-                        ForEach(0 ..< 20) { item in
+                        ForEach(0 ..< 20) { _ in
                             CourseRow()
                         }
                     }
                     .padding()
-                    
                 }
                 .background(Color("Background 1"))
                 .transition(
                     .asymmetric(
                         insertion: AnyTransition
-                                    .opacity
-                                    .animation(
-                                        Animation.spring().delay(0.3)),
+                            .opacity
+                            .animation(
+                                Animation.spring().delay(0.3)),
                         removal: AnyTransition
-                                    .opacity
-                                    .animation(.spring())
+                            .opacity
+                            .animation(.spring())
                     )
                 )
                 .edgesIgnoringSafeArea(.all)
