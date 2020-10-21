@@ -10,6 +10,8 @@ import SwiftUI
 struct CourseView: View {
     @State var show = false
     @Namespace var namespace
+    @State var selectedItem: Course? = nil
+    @State var isDisabled = false
     
     var body: some View {
         ZStack {
@@ -19,15 +21,34 @@ struct CourseView: View {
                         CourseItem(course: item)
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                             .frame(width: 335, height: 250)
+                            .onTapGesture {
+                                withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
+                                    show.toggle()
+                                    selectedItem = item
+                                    isDisabled = true
+                                }
+                            }
+                            .disabled(isDisabled)
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
-            if show {
+            if selectedItem != nil {
                 ScrollView {
-                    CourseItem(course: courses[0])
-                        .matchedGeometryEffect(id: courses[0].id, in: namespace)
+                    CourseItem(course: selectedItem!)
+                        .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                         .frame(height: 300)
+                        .onTapGesture {
+                            withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
+                                show.toggle()
+                                selectedItem = nil
+                                // 设置动画延迟, 延迟时间结束才能运行此代码
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    isDisabled = false
+                                }
+                                
+                            }
+                        }
                     VStack(spacing: 16) {
                         ForEach(0 ..< 20) { item in
                             CourseRow()
@@ -49,11 +70,6 @@ struct CourseView: View {
                     )
                 )
                 .edgesIgnoringSafeArea(.all)
-            }
-        }
-        .onTapGesture {
-            withAnimation(.spring()) { // 建议使用`withAnimation`，来添加点击动效，有更好的过渡，不会造成拖拽拖影
-                show.toggle()
             }
         }
     }
