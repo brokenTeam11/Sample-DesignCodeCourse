@@ -29,9 +29,7 @@ struct CourseItem: View {
             Text(course.subtitle).font(.footnote).foregroundColor(Color.white)
         }
         .padding(.all)
-        .background(course.color)
-        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-        .shadow(color: course.color.opacity(0.3), radius: 20, x: 0, y: 10)
+        .cardStyle()
     }
 }
 

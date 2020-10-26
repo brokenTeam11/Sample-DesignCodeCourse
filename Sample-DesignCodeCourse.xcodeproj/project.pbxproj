@@ -32,6 +32,8 @@
 		C34994102540A95A009CE6DA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C349940F2540A95A009CE6DA /* TabBar.swift */; };
 		C3525F042546670F00506974 /* CourseSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3525F032546670F00506974 /* CourseSectionDetail.swift */; };
 		C3525F052546670F00506974 /* CourseSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3525F032546670F00506974 /* CourseSectionDetail.swift */; };
+		C3525F132546725E00506974 /* LibraryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3525F122546725E00506974 /* LibraryContent.swift */; };
+		C3525F142546725E00506974 /* LibraryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3525F122546725E00506974 /* LibraryContent.swift */; };
 		C3753784253F352800EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */; };
 		C3753785253F352900EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */; };
 		C3753786253F352900EE2D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3753772253F352600EE2D87 /* ContentView.swift */; };
@@ -64,6 +66,7 @@
 		C349940725409C9A009CE6DA /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		C349940F2540A95A009CE6DA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = SOURCE_ROOT; };
 		C3525F032546670F00506974 /* CourseSectionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSectionDetail.swift; sourceTree = "<group>"; };
+		C3525F122546725E00506974 /* LibraryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContent.swift; sourceTree = "<group>"; };
 		C3753771253F352600EE2D87 /* Sample_DesignCodeCourseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_DesignCodeCourseApp.swift; sourceTree = "<group>"; };
 		C3753772253F352600EE2D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3753773253F352800EE2D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +115,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C3525F17254676D000506974 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C34993E025409325009CE6DA /* CloseButton.swift */,
+				C3525F122546725E00506974 /* LibraryContent.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		C375376B253F352600EE2D87 = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +141,10 @@
 				C378EA2D253F5ED100C8FA3C /* Navigation */,
 				C34993DB25408641009CE6DA /* Model */,
 				C378EA30253F5F1800C8FA3C /* Items */,
+				C3525F17254676D000506974 /* Library */,
 				C3753799253F45FB00EE2D87 /* CourseView.swift */,
 				C34993E5254095E4009CE6DA /* CourseDetail.swift */,
 				C3525F032546670F00506974 /* CourseSectionDetail.swift */,
-				C34993E025409325009CE6DA /* CloseButton.swift */,
 				C378EA33253F614D00C8FA3C /* CourseList.swift */,
 				C3753773253F352800EE2D87 /* Assets.xcassets */,
 			);
@@ -302,6 +314,7 @@
 				C375379A253F45FB00EE2D87 /* CourseView.swift in Sources */,
 				C349940425409C41009CE6DA /* VisualEffectBlur.swift in Sources */,
 				C378EA34253F614D00C8FA3C /* CourseList.swift in Sources */,
+				C3525F132546725E00506974 /* LibraryContent.swift in Sources */,
 				C34993F52540991C009CE6DA /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +336,7 @@
 				C3753785253F352900EE2D87 /* Sample_DesignCodeCourseApp.swift in Sources */,
 				C34993F82540991C009CE6DA /* GradientModel.swift in Sources */,
 				C34993F62540991C009CE6DA /* Download.swift in Sources */,
+				C3525F142546725E00506974 /* LibraryContent.swift in Sources */,
 				C34993FA2540991C009CE6DA /* LivestreamSection.swift in Sources */,
 				C34993FE2540991C009CE6DA /* Tutorial.swift in Sources */,
 				C3525F052546670F00506974 /* CourseSectionDetail.swift in Sources */,
