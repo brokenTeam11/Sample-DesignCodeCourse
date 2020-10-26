@@ -29,7 +29,7 @@ struct CourseItem: View {
             Text(course.subtitle).font(.footnote).foregroundColor(Color.white)
         }
         .padding(.all)
-        .cardStyle()
+        .cardStyle(color: Color.blue, cornerRadius: 20)
     }
 }
 
