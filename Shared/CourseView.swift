@@ -13,12 +13,20 @@ struct CourseView: View {
     @Namespace var namespace2
     @State var selectedItem: Course? = nil
     @State var isDisabled = false
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
 
     var body: some View {
         ZStack {
             #if os(iOS)
-                content
-                    .navigationBarHidden(true)
+//                content
+//                    .navigationBarHidden(true)
+            if horizontalSizeClass == .compact {
+                tabBar
+            } else {
+                sidebar
+            }
                 fullContent
                     .background(VisualEffectBlur(blurStyle: .systemMaterial).edgesIgnoringSafeArea(.all)) // `VisualEffectBlur` 是Apple团队开源的用于处理背景模糊
             #else
@@ -34,12 +42,12 @@ struct CourseView: View {
     var content: some View {
         ScrollView {
             VStack(spacing: 0) {
-                Text("Courses")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 16)
-                    .padding(.top, 54)
+//                Text("Courses")
+//                    .font(.largeTitle)
+//                    .bold()
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.leading, 16)
+//                    .padding(.top, 54)
                 // layout布局
                 LazyVGrid(
                     columns: [
@@ -87,6 +95,7 @@ struct CourseView: View {
             }
         }
         .zIndex(1)
+        .navigationTitle("Courses")
     }
 
     // 用于适配iOS和MacOS
@@ -113,6 +122,76 @@ struct CourseView: View {
             .frame(maxWidth: 712)
             .frame(maxWidth: .infinity)
         }
+    }
+    
+    var tabBar: some View {
+        TabView {
+            NavigationView {
+                content
+            }
+            .tabItem {
+                Image(systemName: "book.closed")
+                Text("Courses")
+            }
+            
+            NavigationView {
+                CourseList()
+            }
+            .tabItem {
+                Image(systemName: "list.bullet.rectangle")
+                Text("Tutorials")
+            }
+            
+            NavigationView {
+                CourseList()
+            }
+            .tabItem {
+                Image(systemName: "tv")
+                Text("Livestreams")
+            }
+            
+            NavigationView {
+                CourseList()
+            }
+            .tabItem {
+                Image(systemName: "mail.stack")
+                Text("Certificates")
+            }
+            
+            NavigationView {
+                CourseList()
+            }
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Search")
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var sidebar: some View {
+        #if os(iOS)
+        NavigationView {
+            List {
+                NavigationLink(destination: content) {
+                    Label("Course", systemImage: "book.closed")
+                }
+                Label("Tutorials", systemImage: "list.bullet.rectangle")
+                Label("Livestreams", systemImage: "tv")
+                Label("Certificates", systemImage: "mail.stack")
+                Label("Search", systemImage: "magnifyingglass")
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Learn")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(systemName: "person.crop.circle")
+                }
+            }
+            
+            content
+        }
+        #endif
     }
 }
 
